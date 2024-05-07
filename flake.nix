@@ -11,7 +11,8 @@
     withSystem (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
-        inherit (pkgs) python3;
+        # inherit (pkgs) python3;
+	python3 = pkgs.python312;
         nodejs-bin = pkgs.callPackage ./nodejs-bin {inherit python3;};
         basedpyright = python3.pkgs.buildPythonPackage {
           pname = "basedpyright";
